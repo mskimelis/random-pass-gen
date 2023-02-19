@@ -1,6 +1,6 @@
 {
   "name": "random-pass-gen",
-  "homepage": "https://github.com/mskimelis/random-pass-gen"
+  "homepage": "https://mskimelis.github.io/random-pass-gen"
   "version": "0.1.0",
   "private": true,
   "dependencies": {
