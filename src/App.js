@@ -48,20 +48,25 @@ function App() {
     });
   };
 
+  const [saves, setSaves] = useState([]);
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("Passw"));
+    if (data) {
+      setSaves(data);
+    }
+  }, []);
+
   function SaveButton() {
-    const [saves, setSaves] = useState([]);
-
-    useEffect(() => {
-      const data = JSON.parse(localStorage.getItem("Passw"));
-      if (data) {
-        setSaves(data);
-      }
-    }, []);
-
-    useEffect(() => {
-      localStorage.setItem("Passw", JSON.stringify(saves));
-    }, [saves]);
+    setSaves([...saves, handelText]);
+    localStorage.setItem("Passw", JSON.stringify([...saves, handelText]));
   }
+
+  const deleteSave = (id) => {
+    const newSaves = saves.filter((save, i) => i !== id);
+    setSaves(newSaves);
+    localStorage.setItem("Passw", JSON.stringify(newSaves));
+  };
 
   function generatePassword() {
     const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
@@ -205,7 +210,12 @@ function App() {
           <input type="search" placeholder="Search" />
         </div>
         <div className="Saved-passwords">
-          <li>{handelText}</li>
+          {saves.length > 0 &&
+            saves.map((save, i) => (
+              <li onClick={() => deleteSave(i)} key={i}>
+                {save}
+              </li>
+            ))}
         </div>
       </div>
     </div>
