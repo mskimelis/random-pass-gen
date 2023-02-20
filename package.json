@@ -2,7 +2,7 @@
   "name": "random-pass-gen",
   "version": "0.1.0",
   "homepage": "https://mskimelis.github.io/random-pass-gen",
-  "private": false,
+  "private": true,
   "dependencies": {
     "@mui/icons-material": "^5.11.9",
     "@testing-library/jest-dom": "^5.16.5",
