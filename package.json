@@ -1,7 +1,7 @@
 {
   "name": "random-pass-gen",
-  "homepage": "https://mskimelis.github.io/random-pass-gen",
   "version": "0.1.0",
+  "homepage": "https://mskimelis.github.io/random-pass-gen",
   "private": true,
   "dependencies": {
     "@mui/icons-material": "^5.11.9",
